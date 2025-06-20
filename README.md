@@ -1,10 +1,10 @@
 # Table Rotation Engine
 
-A TypeScript-based CLI tool that performs one-step counter-clockwise rotation on square tables represented as flat arrays.
+A TypeScript-based CLI tool that performs one-step left rotation on square tables represented as flat arrays.
 
 ## Overview
 
-This engine processes CSV files containing table data and rotates square tables by moving elements one position counter-clockwise around concentric rings. Only perfect square tables (1×1, 2×2, 3×3, 4×4, etc.) can be rotated.
+This engine processes CSV files containing table data and rotates square tables by moving elements one position left around concentric rings. Only perfect square tables (1×1, 2×2, 3×3, 4×4, etc.) can be rotated.
 
 ## Features
 

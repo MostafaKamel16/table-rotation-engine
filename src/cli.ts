@@ -4,6 +4,13 @@ import * as fastCsv from "fast-csv";
 import { Transform } from "stream";
 import { rotateTable } from "./rotateTable";
 
+const filePath = process.argv[2];
+if (!filePath) {
+  console.error("Error: Please provide a path to an input CSV file.");
+  console.error("Usage: node cli.js <path/to/input.csv>");
+  process.exit(1);
+}
+
 const rotateTransform = new Transform({
   objectMode: true,
   transform(row: any, _, callback) {
@@ -28,11 +35,7 @@ const formatter = fastCsv.format({
   stream.on("error", (err) => {
     console.error("Stream error:", err.message);
     process.exit(1);
-  })
+  }),
 );
 
-input
-  .pipe(parser)
-  .pipe(rotateTransform)
-  .pipe(formatter)
-  .pipe(process.stdout);
+input.pipe(parser).pipe(rotateTransform).pipe(formatter).pipe(process.stdout);
